@@ -1,25 +1,57 @@
-# Workshop Step 1
+# Workshop Step 2
 
-The goal here is simply to add a backend search.
+Let's go further this time, we'll try to add an instant feeling to the page.
 
-1. Create a `/actors/search` route.
-2. Add a new `search` method that accepts a `query` parameter
-3. Set up a sample results list in this method:
+1. Create a new `/actors/instant_search` route.
+2. Add a new empty `instant_search` method in the actor controller
+3. Change the action of the form in `app/views/actors/index.html.erb` to target this new route.
+4. Create a new `instant_search` view.
+   In this one, you can copy-paste the header of your current `search` view, but keep the input and list out of it
+5. For this step, we'll use another JavaScript library: `instantsearch.js`. It works as lego bricks for an instant search page.  
+   Its documentation can be found here: https://community.algolia.com/instantsearch.js/documentation/ and an example of a basic set up here: https://community.algolia.com/instantsearch.js/documentation/#start .
+6. First, let's add the script and its style to `app/views/layouts/application.html.erb`:
 
-    ```ruby
-    def search
-      @results = [{name: 'Test 1'}, {name: 'Test 2'}]
-    end
+    ```html
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css" />
+    <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
     ```
 
-4. Add a `search` view in the actors namespace that will show a list with the `@results` variable content
-5. First try to use `sqlite` `LIKE` syntax:
+7. Let's add the two main lego blocks in your HTML first:
 
-    ```ruby
-    query = '%Cho%'
-    Actor.where('name LIKE ? OR alternative_name LIKE ?', query, query).order('rating DESC').limit(10)
+    ```html
+    <input id="search-box" type="text" />
+    <ul id="results"></ul>
     ```
 
-6. Run a few searches. Try with typos.
-7. Now try to replace this by Algolia.
-   The gem documentation is here: https://github.com/algolia/algoliasearch-rails .
+8. Then in a `app/assets/javascripts/algolia-instantsearch.js` file, let's add the main logic:
+
+    ```js
+    $(document).ready(function() {
+      var search = instantsearch({
+        appId: 'XXX',
+        apiKey: 'XXX',
+        indexName: 'Actor'
+      });
+
+      search.addWidget(
+        instantsearch.widgets.searchBox({
+          container: '#search-box',
+          placeholder: 'Search for actors...'
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.hits({
+          container: '#results',
+          templates: {
+            item: '<li>{{ name }}</li>'
+          }
+        })
+      );
+
+      search.start();
+    });
+    ```
+
+9. Try to play with other widgets. `stats`, `pagination` and `slider` are all good candidates here.
+10. Style it! Use the `image_path` in the records to display the picture of the actor/actress. (You need to prefix them with "https://image.tmdb.org/t/p/w45/")
