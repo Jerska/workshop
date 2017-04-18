@@ -70,7 +70,7 @@ In `app/views/actors/index.html.erb`:
 
 ```html
 <form action="/actors/search">
-  <input id="search-input" type="text" placeholder="Search for actors..."/>
+  <input id="search-input" type="text" name="query" placeholder="Search for actors..."/>
 </form>
 ```
 
