@@ -3,11 +3,7 @@ class ActorsController < ApplicationController
 
   # GET /search
   def search
-    query = '%' + params[:query] + '%'
-    @results = Actor
-      .where('name LIKE ? OR alternative_name LIKE ?', query, query)
-      .order('rating DESC')
-      .limit(10)
+    @results = Actor.search(params[:query], { hitsPerPage: 10 })
   end
 
   # GET /actors
