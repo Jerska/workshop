@@ -1,6 +1,15 @@
 class ActorsController < ApplicationController
   before_action :set_actor, only: [:show, :edit, :update, :destroy]
 
+  # GET /search
+  def search
+    query = '%' + params[:query] + '%'
+    @results = Actor
+      .where('name LIKE ? OR alternative_name LIKE ?', query, query)
+      .order('rating DESC')
+      .limit(10)
+  end
+
   # GET /actors
   # GET /actors.json
   def index
