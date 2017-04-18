@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @actor.rating %>
+</p>
+
+<p>
+  <strong>Image path:</strong>
+  <%= @actor.image_path %>
+</p>
+
+<p>
+  <strong>Alternative name:</strong>
+  <%= @actor.alternative_name %>
+</p>
+
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Back', actors_path %>
