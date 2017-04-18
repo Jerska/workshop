@@ -3,6 +3,6 @@ class Actor < ApplicationRecord
   algoliasearch do
     attributes :name, :alternative_name
     searchableAttributes [:name, :alternative_name]
-    customRanking ['asc(ranking)']
+    customRanking ['desc(rating)']
   end
 end
