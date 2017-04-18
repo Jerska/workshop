@@ -24,6 +24,10 @@ The goal here is simply to add a backend search.
 7. Now try to replace this by Algolia.
    The gem documentation is here: https://github.com/algolia/algoliasearch-rails .
 
+## Next step
+
+[Go to step 2](https://github.com/Jerskouille/workshop/tree/step2)
+
 ## If you're stuck
 
 1. [Step 0 to `LIKE` search](https://github.com/Jerskouille/workshop/commit/8f40d790cb5c02c560df609c2b22bf6863374e6a)
