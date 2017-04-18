@@ -23,3 +23,8 @@ The goal here is simply to add a backend search.
 6. Run a few searches. Try with typos.
 7. Now try to replace this by Algolia.
    The gem documentation is here: https://github.com/algolia/algoliasearch-rails .
+
+## If you're stuck
+
+1. [Step 0 to `LIKE` search](https://github.com/Jerskouille/workshop/commit/8f40d790cb5c02c560df609c2b22bf6863374e6a)
+2. [`LIKE` to `Algolia`](https://github.com/Jerskouille/workshop/commit/2f7e5259576bac687004326e62bbc30ffd28257e)
