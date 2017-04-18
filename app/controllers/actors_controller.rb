@@ -6,6 +6,10 @@ class ActorsController < ApplicationController
     @results = Actor.search(params[:query], { hitsPerPage: 10 })
   end
 
+  # GET /instant_search
+  def instant_search
+  end
+
   # GET /actors
   # GET /actors.json
   def index

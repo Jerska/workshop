@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :actors do
     collection do
       get 'search'
+      get 'instant_search'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
