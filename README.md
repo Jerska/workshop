@@ -135,3 +135,7 @@ In `app/assets/stylesheets/algolia.css`:
   font-style: normal;
 }
 ```
+
+## Next step
+
+[Go to step 1](https://github.com/Jerskouille/workshop/tree/step1)
