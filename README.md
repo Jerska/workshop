@@ -55,3 +55,7 @@ Let's go further this time, we'll try to add an instant feeling to the page.
 
 9. Try to play with other widgets. `stats`, `pagination` and `slider` are all good candidates here.
 10. Style it! Use the `image_path` in the records to display the picture of the actor/actress. (You need to prefix them with "https://image.tmdb.org/t/p/w45/")
+
+## If you're stuck
+
+[Add instant search to the code](https://github.com/Jerskouille/workshop/commit/025f4043ad993851bd686f55d434986c7167972d)
